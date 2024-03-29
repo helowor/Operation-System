@@ -123,7 +123,7 @@ namespace App.MyProcess
             }
 
 
-            Mypri.Text = null;
+            //Mypri.Text = null;
         }
     }
 }
