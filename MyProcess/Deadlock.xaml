@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="App.MyProcess.Deadlock"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App.MyProcess"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="各进程所需要的资源数" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="各进程还需要的资源数" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="各进程已获得的资源数" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+            <TextBlock Text="资源1空闲数量为："/>
+            <TextBox Name="Text1" Text=" "/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+            <TextBlock  Text="资源2空闲数量为："/>
+            <TextBox Name="Text2" Text=" "/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+            <TextBlock  Text="资源3空闲数量为："/>
+            <TextBox Name="Text3" Text=" "/>
+        </StackPanel>
+        <ListView Name="list1" Grid.Column="0" Grid.Row="1"></ListView>
+        <ListView Name="list2" Grid.Column="1" Grid.Row="1"></ListView>
+        <ListView Name="list3" Grid.Column="2" Grid.Row="1"></ListView>
+        <StackPanel Grid.Column="0" Grid.Row="3">
+            <Button Name="MyAdd" Content="添加" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Click="MyAdd_Click"/>
+            <Button Name="MyRun" Content="生成" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Click="MyRun_Click"/>
+            <Button Name="MyDebug" Content="运行" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Click="MyDebug_Click" />
+
+        </StackPanel>
+
+        <StackPanel  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Margin="10">
+            <TextBlock Text="运行情况" Margin="0,0,0,5"/>
+            <ListView Name="result" Margin="0,5,0,0"></ListView>
+        </StackPanel>
+    </Grid>
+</Page>

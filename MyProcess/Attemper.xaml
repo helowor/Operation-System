@@ -1,0 +1,138 @@
+﻿<Page
+    x:Class="App.MyProcess.Attemper"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App.MyProcess"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:App.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Name="operation" Text="操作以及输入" Grid.Column="0" Grid.Row="0" FontSize="25" Margin="10,10,10,10"/>
+        <TextBlock Name="name" Text="运行情况" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" FontSize="25" Margin="150,10,150,10"/>
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
+            <TextBlock Text="进程名称" Margin="10,10,10,10" FontSize="20"/>
+            <TextBox Name="pname" Text="" Margin="10,10,10,10"/>
+            <TextBlock Text="进程编号" Margin="10,10,10,10" FontSize="20"/>
+            <TextBox Name="pid" Text="" Margin="10,10,10,10"/>
+            <TextBlock Text="运行时间" Margin="10,10,10,10" FontSize="20"/>
+            <TextBox Name="time" Text="" Margin="10,10,10,10"/>
+            <Button Name="Myadd" Content="添加" Margin="10,10,10,10" FontSize="20" Click="Myadd_Click" />
+            <Button Name="Myrun" Content="运行" Margin="10,10,10,10" FontSize="20"  Click="Myrun_Click"/>
+            <TextBlock Text="时间片" Margin="10,10,10,10" FontSize="20"/>
+            <TextBox Name="Mypri" Text="" Margin="10,10,10,10"/>
+
+        </StackPanel>
+        <ListBox Name="result" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4">
+        </ListBox>
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
+            <TextBlock Text="就绪队列"/>
+            <ListView ItemsSource="{x:Bind PCBs1}" SelectionMode="Single" Name="list1">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:PCB">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock >
+                <Run Text="进程名称: "/>
+                <Run Text="{x:Bind Pname}"/>
+                            </TextBlock>
+                            <TextBlock Margin="20,0,0,0">
+                <Run Text="进程编号: "/>
+                <Run Text="{x:Bind Pid}"/>
+                            </TextBlock>
+                            <TextBlock Margin="20,0,0,0">
+                 <Run Text="运行时间: "/>
+                <Run Text="{x:Bind Time}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="2">
+            <TextBlock Text="运行队列"/>
+            <ListView ItemsSource="{x:Bind PCBs2}" SelectionMode="Single" Name="list2">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:PCB">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock >
+                <Run Text="进程名称: "/>
+                <Run Text="{x:Bind Pname}"/>
+                            </TextBlock>
+                            <TextBlock Margin="20,0,0,0">
+                <Run Text="进程编号: "/>
+                <Run Text="{x:Bind Pid}"/>
+                            </TextBlock>
+                            <TextBlock Margin="20,0,0,0">
+                 <Run Text="运行时间: "/>
+                <Run Text="{x:Bind Time}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="3">
+            <TextBlock Text="阻塞队列"/>
+            <ListView Name="list3" ItemsSource="{x:Bind PCBs3}" SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:PCB">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock >
+                <Run Text="进程名称: "/>
+                <Run Text="{x:Bind Pname}"/>
+                            </TextBlock>
+                            <TextBlock Margin="20,0,0,0">
+                <Run Text="进程编号: "/>
+                <Run Text="{x:Bind Pid}"/>
+                            </TextBlock>
+                            <TextBlock Margin="20,0,0,0">
+                 <Run Text="运行时间: "/>
+                <Run Text="{x:Bind Time}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="4">
+            <TextBlock Text="消亡队列"/>
+            <ListView ItemsSource="{x:Bind PCBs4}" SelectionMode="Single" Name="list4">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:PCB">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock >
+                <Run Text="进程名称: "/>
+                <Run Text="{x:Bind Pname}"/>
+                            </TextBlock>
+                            <TextBlock Margin="20,0,0,0">
+                <Run Text="进程编号: "/>
+                <Run Text="{x:Bind Pid}"/>
+                            </TextBlock>
+                            <TextBlock Margin="20,0,0,0">
+                 <Run Text="运行时间: "/>
+                <Run Text="{x:Bind Time}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>

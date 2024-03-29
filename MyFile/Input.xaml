@@ -1,0 +1,14 @@
+﻿<ContentDialog
+    x:Class="App.MyFile.Input"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="输入名称"
+    PrimaryButtonText="确认"
+    SecondaryButtonText="取消"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <StackPanel>
+        <TextBox x:Name="InputTextBox" PlaceholderText="请输入名称..."/>
+    </StackPanel>
+</ContentDialog>

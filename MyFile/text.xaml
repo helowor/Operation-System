@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="App.MyFile.text"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App.MyFile"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    HorizontalAlignment="Stretch"
+    VerticalAlignment="Stretch">
+
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="Save" Content="保存" Margin="10,10,5,10" Click="Save_Click"/>
+            <Button Name="Clear" Content="清空" Margin="5,10,10,10" Click="Clear_Click"/>
+        </StackPanel>
+        <TextBox Name="Head" Grid.Row="1"   PlaceholderText="请输入标题..."  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MinWidth="1500"/>
+        <TextBox Name="context" Grid.Row="2"  TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    </Grid>
+</Page>
