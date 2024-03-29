@@ -25,7 +25,7 @@ namespace App
         public MainPage()
         {
             this.InitializeComponent();
-            MyFrame.Navigate(typeof(File));
+            MyFrame.Navigate(typeof(Home));
         }
 
         private void Hambergurger_Click(object sender, RoutedEventArgs e)
